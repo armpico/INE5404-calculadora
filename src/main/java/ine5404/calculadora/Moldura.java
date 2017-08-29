@@ -5,6 +5,8 @@
  */
 package ine5404.calculadora;
 
+import ine5404.calculadora.modelo.Calculadora;
+
 /**
  *
  * @author 17100508
@@ -117,8 +119,9 @@ public class Moldura extends javax.swing.JFrame {
         
         Double real1 = new Double(numero1);
         Double real2 = new Double(numero2);
+        Calculadora calculadora = new Calculadora();
         
-        Double resultado = real1 + real2;
+        Double resultado = calculadora.somar(real1, real2);
 
         this.jLabel4.setText(resultado.toString());
     }//GEN-LAST:event_somar
@@ -154,17 +157,15 @@ public class Moldura extends javax.swing.JFrame {
         Double real1 = new Double(numero1);
         Double real2 = new Double(numero2);
         
-        if(real2 != 0){
-            Double resultado = real1 / real2;
+        Calculadora calc = new Calculadora();
+        
+        Double resultado = calc.dividir(real1, real2);
+        
+        if(resultado != null){
             this.jLabel4.setText(resultado.toString());
         }
         else{
-            if(real1 != 0){
-                this.jLabel4.setText("infinito");
-            }
-            else{
-                this.jLabel4.setText("indeterminado");
-            }
+            this.jLabel4.setText("error");
         }
     }//GEN-LAST:event_dividir
 
